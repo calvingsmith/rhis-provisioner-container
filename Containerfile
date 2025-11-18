@@ -16,6 +16,8 @@ RUN python3 -m pip install ipalib
 # ansible collection requirements
 RUN mkdir -p /etc/ansible
 COPY sources/ansible.cfg /etc/ansible/ansible.cfg
+COPY sources/aap-example-org.pem /etc/pki/ca-trust/source/anchors/
+RUN update-ca-trust
 RUN ansible-galaxy collection install ansible.utils
 
 RUN if [[ $ANSIBLE_VER == "2.5" ]]; then \
