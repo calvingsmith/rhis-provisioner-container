@@ -18,7 +18,7 @@ RUN mkdir -p /etc/ansible
 COPY sources/ansible.cfg /etc/ansible/ansible.cfg
 COPY sources/aap-example-org.pem /etc/pki/ca-trust/source/anchors/
 RUN update-ca-trust
-RUN ansible-galaxy collection install ansible.utils
+RUN ansible-galaxy collection install -vvv ansible.utils
 
 RUN if [[ $ANSIBLE_VER == "2.5" ]]; then \
     echo "Installing ansible.controller collection for AAP 2.5"; \
@@ -42,17 +42,17 @@ RUN ansible-galaxy collection install redhat.satellite_operations
 # add the rhis builder repos
 RUN mkdir -p /rhis
 WORKDIR /rhis
-RUN git clone https://github.com/parmstro/rhis-builder-idm.git
-RUN git clone https://github.com/parmstro/rhis-builder-satellite.git
-RUN git clone https://github.com/parmstro/rhis-builder-pipelines.git
-RUN git clone https://github.com/parmstro/rhis-builder-aap.git
-RUN git clone https://github.com/parmstro/rhis-builder-nbde.git
-RUN git clone https://github.com/parmstro/rhis-builder-day-2-ops.git
-RUN git clone https://github.com/parmstro/rhis-builder-ansible-ee.git
-RUN git clone https://github.com/parmstro/rhis-builder-imagebuilder.git
-RUN git clone https://github.com/parmstro/rhis-builder-yubi.git
-RUN git clone https://github.com/parmstro/rhis-builder-convert2rhel.git
-RUN git clone https://github.com/parmstro/rhis-builder-inventory.git
+RUN git clone https://github.com/calvingsmith/rhis-builder-idm.git
+RUN git clone https://github.com/calvingsmith/rhis-builder-satellite.git
+RUN git clone https://github.com/calvingsmith/rhis-builder-pipelines.git
+RUN git clone https://github.com/calvingsmith/rhis-builder-aap.git
+RUN git clone https://github.com/calvingsmith/rhis-builder-nbde.git
+RUN git clone https://github.com/calvingsmith/rhis-builder-day-2-ops.git
+RUN git clone https://github.com/calvingsmith/rhis-builder-ansible-ee.git
+RUN git clone https://github.com/calvingsmith/rhis-builder-imagebuilder.git
+RUN git clone https://github.com/calvingsmith/rhis-builder-yubi.git
+RUN git clone https://github.com/calvingsmith/rhis-builder-convert2rhel.git
+RUN git clone https://github.com/calvingsmith/rhis-builder-inventory.git
 
 # Now make the folders for group_vars, host_vars and inventory files
 RUN mkdir -p /rhis/vars/external_inventory
