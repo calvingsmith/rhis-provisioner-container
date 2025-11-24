@@ -14,3 +14,4 @@ Enhance the above to use a credential source to get the ssh credential and vault
 This may not be necessary as the container launch itself is likely to be wrapped in an ansible play that will get the credentials from a credential source...
 layers on layers on layers... half a hundred ways of implementing this.
 
+- Satellite server needs rhel-system-roles installed

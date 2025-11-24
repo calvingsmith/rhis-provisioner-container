@@ -10,7 +10,7 @@
     default_host_link: "/rhis/vars/host_vars"
     default_template_link: "/rhis/vars/templates"
     default_vars_link: "/rhis/vars/vars"
-    base_backup_path: "/rhis/vars/example.ca"
+    base_backup_path: "/rhis/vars/demo.net"
     project_list:
       - name: "rhis-builder-idm"
       - name: "rhis-builder-satellite"

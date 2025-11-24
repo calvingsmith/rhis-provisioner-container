@@ -2,7 +2,7 @@
 # The elements should mirror the upstream modules that are used to build the RHIS
 
 # Eventually a full schema will be provided.
-# For now, see the example.ca host_vars and group_vars files
+# For now, see the demo.net host_vars and group_vars files
 
 # There is a main.yml file in each project. The main.yml file runs all roles and tasks in the proper order to ensure the proper initial build. 
 
@@ -27,7 +27,7 @@ ansible-playbook --inventory /rhis/vars/external_inventory/inventory \
 # rhis-builder-satellite 
 
 # Run a simple command to create or update the activation keys for the satellite organization
-# See the activation_keys.yml file under satellite.example.ca in the host_vars directory for the required yaml configuration format.
+# See the activation_keys.yml file under satellite.demo.net in the host_vars directory for the required yaml configuration format.
 
 ansible-playbook --inventory /rhis/vars/external_inventory/inventory \
                  --user ansiblerunner \

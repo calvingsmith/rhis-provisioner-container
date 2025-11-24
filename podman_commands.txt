@@ -1,4 +1,4 @@
-# Run the container with the default example.ca vars files
+# Run the container with the default demo.net vars files
 # This uses the inventory, group_vars, and host_vars included with the projects
 # Bind your vault dir to the rhis vault directory
 

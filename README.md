@@ -1,6 +1,6 @@
 # rhis-provisioner Container build
 
-You should still download and run the code in the [rhis-builder-provisioner](https://github.com/parmstro/rhis-builder-provisioner) repo! The rhis-builder-provisioner repo will set up your provisioner node with this project as well as the example.ca configuration and inventory project - [rhis-builder-inventory](https://github.com/parmstro/rhis-builder-provisioner). 
+You should still download and run the code in the [rhis-builder-provisioner](https://github.com/parmstro/rhis-builder-provisioner) repo! The rhis-builder-provisioner repo will set up your provisioner node with this project as well as the demo.net configuration and inventory project - [rhis-builder-inventory](https://github.com/parmstro/rhis-builder-provisioner). 
 
 This project simplifies getting started with the Red Hat Infrastructure Standard and rhis-builder.
 
@@ -48,13 +48,13 @@ The run_container.sh script controls launching the container. The script takes s
     * As an example this is where the OpenSCAP contents and tailoring files are located
 * **--group-vars-dir**
     * This is the path in the executing users home directory that stores the group_vars directory for rhis-builder repositories
-    * e.g. /home/ansiblerunner/rhis/rhis-builder-inventory/example.ca/vault
+    * e.g. /home/ansiblerunner/rhis/rhis-builder-inventory/demo.net/vault
 * **--host-vars-dir**
     * This is the path in the executing users home directory that stores the host_vars directory for rhis-builder repositories
-    * e.g. /home/ansiblerunner/rhis/rhis-builder-inventory/example.ca/group_vars
+    * e.g. /home/ansiblerunner/rhis/rhis-builder-inventory/demo.net/group_vars
 * **--inventory-dir**
     * This is the path in the executing users home directory that stores an inventory directory that contains your inventory file
-    * e.g. /home/ansiblerunner/rhis/rhis-builder-inventory/example.ca/inventory
+    * e.g. /home/ansiblerunner/rhis/rhis-builder-inventory/demo.net/inventory
 * **--templates-dir**
     * This is the path in the executing users home directory that stores the templates directory for rhis-builder repositories
     * As an example, all the job, partitioning and provisioning templates for the rhis-builder repositories are stored here.
@@ -70,24 +70,24 @@ For example, if you used rhis-builder-provisioner to prepare your provisioner no
 ~~~
 
 # runs an environment capable of building RHIS with AAP 2.4
-./run_container.sh --secrets-dir ~/rhis/rhis-builder-inventory/example.ca/vault \
-                   --external-tasks-dir ~/rhis/rhis-builder-inventory/example.ca/external_tasks \
-                   --files-dir ~/rhis/rhis-builder-inventory/example.ca/files \
-                   --group-vars-dir ~/rhis/rhis-builder-inventory/example.ca/group_vars \
-                   --host-vars-dir ~/rhis/rhis-builder-inventory/example.ca/host_vars \
-                   --inventory-dir ~/rhis/rhis-builder-inventory/example.ca/inventory \
-                   --templates-dir ~/rhis/rhis-builder-inventory/example.ca/templates \
-                   --vars-dir ~/rhis/rhis-builder-inventory/example.ca/vars
+./run_container.sh --secrets-dir ~/rhis/rhis-builder-inventory/demo.net/vault \
+                   --external-tasks-dir ~/rhis/rhis-builder-inventory/demo.net/external_tasks \
+                   --files-dir ~/rhis/rhis-builder-inventory/demo.net/files \
+                   --group-vars-dir ~/rhis/rhis-builder-inventory/demo.net/group_vars \
+                   --host-vars-dir ~/rhis/rhis-builder-inventory/demo.net/host_vars \
+                   --inventory-dir ~/rhis/rhis-builder-inventory/demo.net/inventory \
+                   --templates-dir ~/rhis/rhis-builder-inventory/demo.net/templates \
+                   --vars-dir ~/rhis/rhis-builder-inventory/demo.net/vars
 
 # runs an environment capable of building RHIS with AAP 2.5 (i.e. includes ansible.controller >= version 4.6)
-./run_container.sh --secrets-dir ~/rhis/rhis-builder-inventory/example.ca/vault \
-                   --external-tasks-dir ~/rhis/rhis-builder-inventory/example.ca/external_tasks \
-                   --files-dir ~/rhis/rhis-builder-inventory/example.ca/files \
-                   --group-vars-dir ~/rhis/rhis-builder-inventory/example.ca/group_vars \
-                   --host-vars-dir ~/rhis/rhis-builder-inventory/example.ca/host_vars \
-                   --inventory-dir ~/rhis/rhis-builder-inventory/example.ca/inventory \
-                   --templates-dir ~/rhis/rhis-builder-inventory/example.ca/templates \
-                   --vars-dir ~/rhis/rhis-builder-inventory/example.ca/templates \
+./run_container.sh --secrets-dir ~/rhis/rhis-builder-inventory/demo.net/vault \
+                   --external-tasks-dir ~/rhis/rhis-builder-inventory/demo.net/external_tasks \
+                   --files-dir ~/rhis/rhis-builder-inventory/demo.net/files \
+                   --group-vars-dir ~/rhis/rhis-builder-inventory/demo.net/group_vars \
+                   --host-vars-dir ~/rhis/rhis-builder-inventory/demo.net/host_vars \
+                   --inventory-dir ~/rhis/rhis-builder-inventory/demo.net/inventory \
+                   --templates-dir ~/rhis/rhis-builder-inventory/demo.net/templates \
+                   --vars-dir ~/rhis/rhis-builder-inventory/demo.net/templates \
                    --ansible-ver 2.5
 
 ## NOTE: Your configuration files must include the appropriate references to synchronize and load the appropriate 2.5 content!
@@ -110,7 +110,7 @@ The other 3 playbooks are utility plays that are useful for testing and debuggin
 - run_role_task.yml - most roles in RHIS consist of multiple tasks. This playbook allows you to dig in where necessary and run a particular task.
 - run_task.yml - in several of the rhis-builder projects, there are tasks that are outside the bounds of a particular role. This playbook accepts the task
 
-See the rhis-builder_sample_commands.txt for running various roles, tasks or full builds with your own custom configuration instead of the example.ca demo environment.
+See the rhis-builder_sample_commands.txt for running various roles, tasks or full builds with your own custom configuration instead of the demo.net demo environment.
 
 Please, comments, feature requests, issues, and pull requests are all welcome.
 

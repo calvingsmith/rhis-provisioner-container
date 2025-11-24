@@ -75,7 +75,7 @@ if [[ $secretsdir == "" ]]; then
 fi
 
 if [[ $groupvarsdir == "" || $hostvarsdir == "" || $inventorydir == "" ]]; then
-  echo "A custom configuration was not provided, using example.ca demo configuration."
+  echo "A custom configuration was not provided, using demo.net demo configuration."
   
   podman run -it -v $secretsdir:/rhis/vars/vault:Z --hostname provisioner localhost/rhis-provisioner-9-$ansiblever:latest
   
