@@ -6,7 +6,7 @@ filesdir=""
 groupvarsdir=""
 hostvarsdir=""
 inventorydir=""
-secretsdir=""
+secretsdir="/root/demo.net/vault"
 templatesdir=""
 varsdir=""
 
