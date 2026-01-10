@@ -50,8 +50,8 @@ RUN git clone https://github.com/calvingsmith/rhis-builder-nbde.git
 RUN git clone https://github.com/calvingsmith/rhis-builder-day-2-ops.git
 RUN git clone https://github.com/calvingsmith/rhis-builder-ansible-ee.git
 RUN git clone https://github.com/calvingsmith/rhis-builder-imagebuilder.git
-RUN git clone https://github.com/calvingsmith/rhis-builder-yubi.git
-RUN git clone https://github.com/calvingsmith/rhis-builder-convert2rhel.git
+# RUN git clone https://github.com/calvingsmith/rhis-builder-yubi.git
+# RUN git clone https://github.com/calvingsmith/rhis-builder-convert2rhel.git
 RUN git clone https://github.com/calvingsmith/rhis-builder-inventory.git
 
 # Now make the folders for group_vars, host_vars and inventory files
