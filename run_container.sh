@@ -1,14 +1,15 @@
 #!/bin/bash
 
+projectdir=$HOME
 ansiblever="2.4"
-externaltasksdir=""
-filesdir=""
-groupvarsdir=""
-hostvarsdir=""
-inventorydir="$HOME/inventory/demo.net"
-secretsdir="$HOME/vault/demo.net"
-templatesdir=""
-varsdir=""
+externaltasksdir="$projectdir/rhis-builder-inventory/demo.net/external_tasks"
+filesdir="$projectdir/rhis-builder-inventory/demo.net/files"
+groupvarsdir="$projectdir/rhis-builder-inventory/demo.net/group_vars"
+hostvarsdir="$projectdir/rhis-builder-inventory/demo.net/host_vars"
+inventorydir="$projectdir/rhis-builder-inventory/demo.net/inventory"
+secretsdir="$projectdir/vault/demo.net"
+templatesdir="$projectdir/rhis-builder-inventory/demo.net/templates"
+varsdir="$projectdir/rhis-builder-inventory/demo.net/vars"
 
 while [[ "$#" -gt 0 ]]; do
     case "$1" in
@@ -77,7 +78,7 @@ fi
 if [[ $groupvarsdir == "" || $hostvarsdir == "" || $inventorydir == "" ]]; then
   echo "A custom configuration was not provided, using demo.net demo configuration."
   
-  podman run -it -v $secretsdir:/rhis/vars/vault:Z --hostname provisioner localhost/rhis-provisioner-9-$ansiblever:latest
+  podman run -it -v $secretsdir:/rhis/vars/vault:Z --hostname provisioner --pull-policy never localhost/rhis-provisioner-9-$ansiblever:latest
   
   # Quietly restore the SELinux context 
   restorecon -FRq $secretsdir
