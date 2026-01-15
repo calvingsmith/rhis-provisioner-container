@@ -36,6 +36,7 @@ cp destroy_test_hosts.sh sources/destroy_test_hosts.sh
 cp build_aap_controller24.sh sources/build_aap_controller24.sh
 cp build_aap_hub24.sh sources/build_aap_hub24.sh
 cp README.md sources/README.md
+cp ssh_config sources/ssh_config
 
 echo
 echo "Running 'podman build' with the following parameters:"
