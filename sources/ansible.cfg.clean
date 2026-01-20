@@ -13,6 +13,7 @@
 [defaults]
 remote_tmp: /var/tmp
 timeout: 300
+stdout_callback=debug
 
 [ssh_connection]
 ssh_args = -o StrictHostKeyChecking=accept-new
