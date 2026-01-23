@@ -42,16 +42,25 @@ RUN ansible-galaxy collection install redhat.satellite_operations
 # add the rhis builder repos
 RUN mkdir -p /rhis
 WORKDIR /rhis
+ADD https://api.github.com/repos/calvingsmith/rhis-builder-idm/git/refs/heads/main /tmp/version-idm.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-idm.git
+ADD https://api.github.com/repos/calvingsmith/rhis-builder-idm/git/refs/heads/main /tmp/version-idm.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-satellite.git
+ADD https://api.github.com/repos/calvingsmith/rhis-builder-satellite/git/refs/heads/main /tmp/version-satellite.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-pipelines.git
+ADD https://api.github.com/repos/calvingsmith/rhis-builder-aap/git/refs/heads/main /tmp/version-aap.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-aap.git
+ADD https://api.github.com/repos/calvingsmith/rhis-builder-nbde/git/refs/heads/main /tmp/version-nbde.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-nbde.git
+ADD https://api.github.com/repos/calvingsmith/rhis-builder-day-2-ops/git/refs/heads/main /tmp/version-day-2-ops.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-day-2-ops.git
+ADD https://api.github.com/repos/calvingsmith/rhis-builder-ansible-ee/git/refs/heads/main /tmp/version-ansible-ee.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-ansible-ee.git
+ADD https://api.github.com/repos/calvingsmith/rhis-builder-imagebuilder/git/refs/heads/main /tmp/version-imagebuilder.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-imagebuilder.git
 # RUN git clone https://github.com/calvingsmith/rhis-builder-yubi.git
 # RUN git clone https://github.com/calvingsmith/rhis-builder-convert2rhel.git
+ADD https://api.github.com/repos/calvingsmith/rhis-builder-inventory/git/refs/heads/main /tmp/version-inventory.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-inventory.git
 
 # Now make the folders for group_vars, host_vars and inventory files
