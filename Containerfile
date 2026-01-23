@@ -39,14 +39,23 @@ RUN ansible-galaxy collection install redhat.rhel_idm
 RUN ansible-galaxy collection install redhat.rhel_system_roles
 RUN ansible-galaxy collection install redhat.satellite
 RUN ansible-galaxy collection install redhat.satellite_operations
-# add the rhis builder repos
+# Now make the folders for group_vars, host_vars and inventory files
 RUN mkdir -p /rhis
+RUN mkdir -p /rhis/vars/external_inventory
+RUN mkdir -p /rhis/vars/external_tasks
+RUN mkdir -p /rhis/vars/files
+RUN mkdir -p /rhis/vars/group_vars
+RUN mkdir -p /rhis/vars/host_vars
+RUN mkdir -p /rhis/vars/vars
+RUN mkdir -p /rhis/vars/vault
+
+# add the rhis builder repos
 WORKDIR /rhis
 ADD https://api.github.com/repos/calvingsmith/rhis-builder-idm/git/refs/heads/main /tmp/version-idm.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-idm.git
-ADD https://api.github.com/repos/calvingsmith/rhis-builder-idm/git/refs/heads/main /tmp/version-idm.json
-RUN git clone https://github.com/calvingsmith/rhis-builder-satellite.git
 ADD https://api.github.com/repos/calvingsmith/rhis-builder-satellite/git/refs/heads/main /tmp/version-satellite.json
+RUN git clone https://github.com/calvingsmith/rhis-builder-satellite.git
+ADD https://api.github.com/repos/calvingsmith/rhis-builder-pipelines/git/refs/heads/main /tmp/version-pipelines.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-pipelines.git
 ADD https://api.github.com/repos/calvingsmith/rhis-builder-aap/git/refs/heads/main /tmp/version-aap.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-aap.git
@@ -63,14 +72,6 @@ RUN git clone https://github.com/calvingsmith/rhis-builder-imagebuilder.git
 ADD https://api.github.com/repos/calvingsmith/rhis-builder-inventory/git/refs/heads/main /tmp/version-inventory.json
 RUN git clone https://github.com/calvingsmith/rhis-builder-inventory.git
 
-# Now make the folders for group_vars, host_vars and inventory files
-RUN mkdir -p /rhis/vars/external_inventory
-RUN mkdir -p /rhis/vars/external_tasks
-RUN mkdir -p /rhis/vars/files
-RUN mkdir -p /rhis/vars/group_vars
-RUN mkdir -p /rhis/vars/host_vars
-RUN mkdir -p /rhis/vars/vars
-RUN mkdir -p /rhis/vars/vault
 
 # This cleans up the repo vars folders and links each project to our volume directories
 # we probably need to manage this for templates and files that we want to modify as well
